@@ -12,13 +12,16 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Use columns to create a side-by-side layout
-col1, col2 = st.columns([1,3])
+col1, col2 = st.columns([1, 3])
 
 # A function that will display column two after an appointment is clicked on
-def display_overview(): 
+
+
+def display_overview():
     with col2:
         # Appointment Overview
-        st.markdown("<h3 style='text-align: center;'>Appointment Overview</h3>", unsafe_allow_html=True)
+        st.markdown(
+            "<h3 style='text-align: center;'>Appointment Overview</h3>", unsafe_allow_html=True)
 
         # Customer Profile
         with st.container():
@@ -33,11 +36,11 @@ def display_overview():
                     <p><b>Insurance Type:</b> Small Business <p>
                 </div>
                 """, unsafe_allow_html=True)
-    
-        # Adding open space 
+
+        # Adding open space
         st.markdown(" ")
 
-        #create 2 more columns within col2
+        # create 2 more columns within col2
         col1_1, col2_2 = st.columns(2)
 
         with col1_1:
@@ -51,9 +54,6 @@ def display_overview():
                         <p>-Insurance quotation </p>
                     </div>
                     """, unsafe_allow_html=True)
-                
-                
-                
 
         with col2_2:
             with st.container():
@@ -66,20 +66,22 @@ def display_overview():
                         <p style='text-align: center; color: white;'><b><u>Uploaded Documents</u></b></p>
                     </div>
                     """, unsafe_allow_html=True)
-                
-                # Display PDF in a frame 
-                st.markdown(f'<iframe src="{pdf1}" width="250" height="200" type="application/pdf"></iframe>', unsafe_allow_html=True)
-                st.markdown(f'<iframe src="{pdf1}" width="250" height="200" type="application/pdf"></iframe>', unsafe_allow_html=True)
 
-        # Area for notes that agent can take during appoinment 
+                # Display PDF in a frame
+                st.markdown(
+                    f'<iframe src="{pdf1}" width="250" height="200" type="application/pdf"></iframe>', unsafe_allow_html=True)
+                st.markdown(
+                    f'<iframe src="{pdf1}" width="250" height="200" type="application/pdf"></iframe>', unsafe_allow_html=True)
+
+        # Area for notes that agent can take during appoinment
         with st.container():
             st.markdown("""
                 <div style='background-color: #CE0606; padding: 10px; border-radius: 5px;'>
                     <p style='text-align: center; color: white;'><b><u>Notes</u></b></p>
                 </div>
                 """, unsafe_allow_html=True)
-            
-            st.text_input('Type here',key="message")
+
+            st.text_input('Type here', key="message")
 
             # Assuming there's a send button for the chat
             st.button("Save")
@@ -123,7 +125,3 @@ with col1:
     if st.button('4:00 pm'):
         st.success('Appointment Overview Displayed!')
         display_overview()
-
-
-
-            
